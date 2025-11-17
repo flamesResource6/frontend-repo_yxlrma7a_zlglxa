@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+
 const COLORS = { yellow: '#feec03', navy: '#00003d' };
 
 export default function Roadmap() {
@@ -15,13 +17,24 @@ export default function Roadmap() {
         <div className="mt-8 relative">
           <div className="absolute left-0 right-0 top-6 h-[2px] bg-[#d5d5d5]" />
           <div className="relative grid grid-cols-2 sm:grid-cols-4 gap-6">
-            {steps.map((s) => (
-              <div key={s.label} className="text-center">
-                <div className="mx-auto h-12 w-12 rounded-full flex items-center justify-center font-bold" style={{ background: COLORS.yellow }}>
+            {steps.map((s, i) => (
+              <motion.div
+                key={s.label}
+                className="text-center"
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ delay: i * 0.08 }}
+              >
+                <motion.div
+                  whileHover={{ y: -4 }}
+                  className="mx-auto h-12 w-12 rounded-full flex items-center justify-center font-bold"
+                  style={{ background: COLORS.yellow }}
+                >
                   {s.label}
-                </div>
+                </motion.div>
                 <p className="mt-3 text-sm text-[#00003d]/80">{s.desc}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

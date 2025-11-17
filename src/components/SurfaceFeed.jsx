@@ -1,9 +1,36 @@
 import { Heart, ThumbsDown, Images } from 'lucide-react';
+import { motion, useMotionValue, useTransform } from 'framer-motion';
 
 const COLORS = {
   yellow: '#feec03',
   navy: '#00003d',
 };
+
+function SwipeCard() {
+  const x = useMotionValue(0);
+  const rotate = useTransform(x, [-150, 0, 150], [-12, 0, 12]);
+  const bg = useTransform(x, [-150, 0, 150], ['#ffe9e9', '#f6f6fb', '#e8ffec']);
+
+  return (
+    <motion.div
+      className="relative rounded-2xl border overflow-hidden bg-[#f6f6fb] aspect-[4/3]"
+      style={{ borderColor: '#d5d5d5', x, rotate, background: bg }}
+      drag="x"
+      dragConstraints={{ left: 0, right: 0 }}
+      dragElastic={0.25}
+      whileTap={{ cursor: 'grabbing' }}
+    >
+      <img src="/surface-feed.png" alt="Surface Feed UI" className="w-full h-full object-cover" />
+      <motion.div
+        className="absolute top-4 left-4 inline-flex items-center gap-2 rounded-full bg-white/80 backdrop-blur px-3 py-1 text-xs font-medium"
+        initial={{ opacity: 0, y: -8 }}
+        animate={{ opacity: 1, y: 0, transition: { delay: 0.3 } }}
+      >
+        Drag me ↔
+      </motion.div>
+    </motion.div>
+  );
+}
 
 export default function SurfaceFeed() {
   return (
@@ -25,9 +52,7 @@ export default function SurfaceFeed() {
             <li className="flex items-center gap-2"><ThumbsDown className="h-4 w-4" style={{ color: COLORS.yellow }} /> Alternatives auto-suggested when specs conflict</li>
           </ul>
         </div>
-        <div className="rounded-2xl border overflow-hidden bg-[#f6f6fb] aspect-[4/3]" style={{ borderColor: '#d5d5d5' }}>
-          <img src="/surface-feed.png" alt="Surface Feed UI" className="w-full h-full object-cover" />
-        </div>
+        <SwipeCard />
       </div>
     </section>
   );
