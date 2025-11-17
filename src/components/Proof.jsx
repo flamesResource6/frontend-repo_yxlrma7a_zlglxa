@@ -9,13 +9,13 @@ const stats = [
 
 export default function Proof() {
   return (
-    <section className="py-16 sm:py-24 bg-white">
+    <section id="proof" className="py-16 sm:py-24 bg-white">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <h2 className="text-2xl sm:text-3xl font-bold" style={{ color: COLORS.navy }}>Proof & Case Studies</h2>
-        <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-6">
+        <h2 className="text-[22px] sm:text-3xl font-bold" style={{ color: COLORS.navy }}>Proof & Case Studies</h2>
+        <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
           {stats.map((s) => (
-            <div key={s.label} className="rounded-xl border bg-[#f6f6fb] p-6 text-center" style={{ borderColor: '#d5d5d5' }}>
-              <div className="text-lg font-semibold" style={{ color: COLORS.navy }}>{s.value}</div>
+            <div key={s.label} className="rounded-xl border bg-[#f6f6fb] p-5 sm:p-6 text-center" style={{ borderColor: '#d5d5d5' }}>
+              <div className="text-base sm:text-lg font-semibold" style={{ color: COLORS.navy }}>{s.value}</div>
               <div className="mt-2 text-xs text-[#00003d]/70">{s.label}</div>
             </div>
           ))}

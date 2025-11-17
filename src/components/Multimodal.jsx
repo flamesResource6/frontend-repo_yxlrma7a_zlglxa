@@ -16,8 +16,8 @@ export default function Multimodal() {
   return (
     <section className="py-16 sm:py-24 bg-[#f6f6fb]">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <h2 className="text-2xl sm:text-3xl font-bold" style={{ color: COLORS.navy }}>Multimodal AI Inputs</h2>
-        <p className="mt-3 text-[#00003d]/80 max-w-2xl">Send a photo. Upload a schedule. Ask a question. AI handles the rest.</p>
+        <h2 className="text-[22px] sm:text-3xl font-bold" style={{ color: COLORS.navy }}>Multimodal AI Inputs</h2>
+        <p className="mt-3 text-[#00003d]/80 max-w-2xl leading-relaxed">Send a photo. Upload a schedule. Ask a question. AI handles the rest.</p>
         <div className="mt-6 flex flex-wrap gap-3">
           {chips.map(({ label, icon: Icon }) => (
             <div key={label} className="inline-flex items-center gap-2 rounded-full border bg-white px-4 py-2 text-sm shadow-sm" style={{ borderColor: '#d5d5d5' }}>

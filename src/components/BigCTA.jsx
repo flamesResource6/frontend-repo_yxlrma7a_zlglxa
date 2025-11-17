@@ -2,7 +2,7 @@ const COLORS = { yellow: '#feec03', navy: '#00003d' };
 
 export default function BigCTA({ onCTAClick }) {
   return (
-    <section className="py-16 sm:py-24 bg-[#f6f6fb]">
+    <section id="cta" className="py-16 sm:py-24 bg-[#f6f6fb]">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-3xl sm:text-4xl font-extrabold" style={{ color: COLORS.navy }}>
           Start Sourcing Smarter
